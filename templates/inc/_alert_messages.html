@@ -1,0 +1,20 @@
+{% if messages %}
+   {% for message in messages %}
+
+       <div id="message" class="col-6 mx-auto mt-3">
+           <div class="alert alert-{{ message.tags }} pt-0 text-center alert-dismissible show fadeOut" role="alert">
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong>
+               {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                {% else %}
+{#                {{ message.tags|title }}#}
+                {% endif %}
+            </strong>
+{#           {{ message }}#}
+           <a href="{{result.url}}" target="_blank" class="btn btn-link link-info mt-4 alert-link">Wikipedia: {{result.title}}</a>
+           </div>
+
+       </div>
+
+   {% endfor %}
+{% endif %}

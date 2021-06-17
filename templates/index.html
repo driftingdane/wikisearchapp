@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wikipedia search app with Django 3 - Bootstrap 5 - Wikipedia API (wikipedia.readthedocs.io)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap" rel="stylesheet">
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+</head>
+<body>
+{% block content %}
+
+ <div class="container">
+     <div class="row">
+
+       <!--<p id="message" class="text-black"></p>-->
+
+      <div class="d-grid gap-2 col-12 mx-auto mt-5"><h2 class="lh-3">Wikipedia search app with Django 3 - bootstrap 5 - Wikipedia API. (Wikipedia.readthedocs.io)</h2>
+       <form action="" method="post" class="form" novalidate>
+           <p>{{ title }}</p>
+         {% csrf_token %}
+        <div class="input-group mb-3">
+         <button id="term{{ result.title }}" data-search="{{ result.title }}" class="btn btn-outline-primary btn-lg search" type="submit">Search Wikipedia</button>
+         <input type="text" name="search" class="form-control" placeholder="etc. Sao Paulo" aria-label="wikisearch" aria-describedby="button-addon1" required>
+       </div>
+       </form>
+    {% if result %}
+
+<div class="card col-sm-12 mx-auto p-4 bg-dark text-white mb-5">
+  <div class="row no-gutters">
+              <!-- Alerts -->
+      {% include 'inc/_alert_messages.html' %}
+    <div class="col-md-7 mt-0 mt-sm-0 mt-md-5 pt-3">
+
+      <img src="{{feat}}" class="card-img-top img-fluid rounded mx-auto d-block" alt="{{result.title}}" title="{{result.title}}">
+    </div>
+
+    <div class="col-md-5 text-box">
+      <div class="card-body shadow-sm mx-auto">
+         <h2 class="card-title text-center">{{result.title}}</h2>
+          <div class="p-4 pt-0">
+         <p class="lead text-justified border-top pt-2">{{result.summary}}</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    {% endif %}
+      </div>
+     </div>
+    </div>
+
+{% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $('.search').bind('submit', function (e) {
+    let search;
+    search = $(this).attr("data-search");
+    let isValid = empty(search);
+    if (!isValid) {
+        e.preventDefault();
+        return false;
+    }
+    $.ajax(
+    {
+        type:"GET",
+        url: "http://127.0.0.1:8000",
+        data:{
+                 result_title: search
+        },
+        success: function( data )
+        {
+            $( '#term'+ search ).remove();
+            $( '#message' ).text(data);
+        }
+     })
+});
+</script>
+</body>
+</html>

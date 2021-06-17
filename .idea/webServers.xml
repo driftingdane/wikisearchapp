@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="70282973-6c04-49d8-b7c3-fe7c11dc0be3" name="wikisearchapp" url="https://craftingdev.com/wikisearchapp">
+        <fileTransfer host="185.224.139.235" port="22" rootFolder="/var/www/craftingdev.com/wikisearchapp" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="4f0085fd-86ca-45d6-9751-9b68707bce0c" name="VPS-ADMIN" url="https://185.224.139.235">
+        <fileTransfer host="185.224.139.235" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

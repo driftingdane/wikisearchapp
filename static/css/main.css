@@ -1,0 +1,11 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #5b80b2!important;
+    font-family: 'Raleway', sans-serif;
+}
+
+.text-box {
+    height: 60vh; /* limit it to the size of your window */
+    overflow: auto; /* add scroll when necessary */
+}
