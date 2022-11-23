@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '$2n=fon&uxvopx&=$&)!7#$9yc$fvowjo6cit5!pv)ck1o&71s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://wikisearch-2d5s.onrender.com/"]
 
 # Application definition
 
