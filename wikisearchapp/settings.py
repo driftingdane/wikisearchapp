@@ -25,7 +25,7 @@ SECRET_KEY = '$2n=fon&uxvopx&=$&)!7#$9yc$fvowjo6cit5!pv)ck1o&71s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://wikisearch-uome.onrender.com/"]
+ALLOWED_HOSTS = ['wikisearch-uome.onrender.com']
 
 # Application definition
 
